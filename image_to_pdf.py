@@ -91,6 +91,13 @@ def main():
     # 🔧 Set your image folder (fixed)
     image_folder = "./images_to_pdfs/"
 
+    #Create image folder if it doesn't exist
+    if not os.path.exists(image_folder):
+        os.makedirs(image_folder)
+        print(f"📂 Created image folder: {image_folder}")
+        print("⚠️ Folder was empty. Please add images and rerun the script.")
+        return
+
     convert_images_to_pdf(image_folder=image_folder, order=args.order, pdf_folder=args.pdf_folder)
 
 if __name__ == "__main__":
